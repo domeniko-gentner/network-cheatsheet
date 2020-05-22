@@ -1,0 +1,73 @@
+/*
+    Colors
+    Are ya yellow?!: #feda6a
+    Silver Fox: #d4d4dc
+    Deep Matte Grey: #393f4d
+    Dark Slate: #1d1e22
+    text color   : white
+    Green: #2ECC40
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+body{
+    font-family: 'DM Mono', monospace;
+    background-color: #1d1e22;
+    color: white;
+    font-size: 1.1em;
+}
+
+h1, h2{
+    margin: 0 auto;
+    text-decoration: #feda6a underline;
+    padding-bottom: 1vh;
+}
+
+a{
+    color: #feda6a;
+}
+
+a:hover{
+    color: #f9bf0f;
+}
+
+.panel{
+    background-color: #393f4d;
+    padding: 25px;
+    border-radius: 4px;
+    border: solid 1px #feda6a;
+}
+
+.ethernet-frame-grid{
+    border: 2px solid white;
+    height: 3vh;
+    background-color: #feda6a;
+    color: black;
+    cursor: pointer;
+}
+
+.ethernet-frame-cell{
+    height: 3vh;
+    border-left: 2px solid white;
+    text-align: center;
+}
+
+.frame-text{
+    margin-top: 0.25em;
+}
+
+#tooltip {
+    position: absolute;
+    background: #1d1e22;
+    color: white;
+    padding: 8px;
+    z-index: 999;
+    border-radius: 4px;
+    border: 1px solid #feda6a;
+}
+
+#wrapper{
+    width: 70%;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/raster2.css">
+        <link rel="stylesheet" href="/css.css">
+        <script src="tooltip.js"></script>
+        <title>networking cheat sheet</title>
+    </head>
+    <body>
+    <div id="wrapper">
+        <r-grid columns="1">
+            <h1>networking cheat sheet</h1>
+        </r-grid>
+        <r-grid columns="1">
+            <r-cell class="panel">
+                <h2>Ethernet Frame</h2>
+                <r-grid columns="9" class="ethernet-frame-grid">
+                    <r-cell span="1" data-tooltip title="7 bytes<br>for synchronization" class="ethernet-frame-cell">
+                        <p class="frame-text">Preamble</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="1 byte<br>Marks end of preamble and start of frame. Always 1." class="ethernet-frame-cell">
+                        <p class="frame-text">SFD</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="6 bytes<br>destination address" class="ethernet-frame-cell">
+                        <p class="frame-text">Dest. MAC</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="6 bytes<br>source address" class="ethernet-frame-cell">
+                        <p class="frame-text">Source MAC</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="4 bytes<br>802.1Q, last 12 bits are VLAN ID, optional" class="ethernet-frame-cell">
+                        <p class="frame-text">[VLAN]</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="2 bytes<br>0x8808: Flow Control<br>0x8809: LACP<br>0x8000: IPV4,<br>0x8100: Tagged VLAN<br>0x8060: ARP<br>0x86DD: IPV6" class="ethernet-frame-cell">
+                        <p class="frame-text">EtherType</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="46-1500 bytes<br>can be bigger for jumbo frames" class="ethernet-frame-cell">
+                        <p class="frame-text">Payload</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="4 bytes<br>FCS/Checksum of the frame" class="ethernet-frame-cell">
+                        <p class="frame-text">FCS</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="4 bytes<br>gap between frames<br>uses a timed pause equal to 4 bytes" class="ethernet-frame-cell">
+                        <p class="frame-text">GAP</p>
+                    </r-cell>
+                </r-grid>
+            </r-cell>
+            <r-cell class="panel">
+                <h2>IPV4 Header</h2>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-2" data-tooltip title="4 bits<br>Protocol version, equals 4" class="ethernet-frame-cell">
+                        <p class="frame-text">IP version</p>
+                    </r-cell>
+                    <r-cell span="3-4" data-tooltip title="4 bits<br>Number of 32 bit words in the header<br>5 x 32b = 160b = 20B" class="ethernet-frame-cell">
+                        <p class="frame-text">Header Length</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="6 bits<br>Service Type (QOS)<br>Expedited Forwarding: 101110<br>Best Effort: 000000" class="ethernet-frame-cell">
+                        <p class="frame-text">DSCP</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="2 bits<br>Explicit Congestion Notification<br>Requires support on both ends" class="ethernet-frame-cell">
+                        <p class="frame-text">ECN</p>
+                    </r-cell>
+                    <r-cell span="7-8" data-tooltip title="16 bits<br>Total Length of the header<br>Min size: 20B<br>Max size: 65535B" class="ethernet-frame-cell">
+                        <p class="frame-text">Total Length</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-4" data-tooltip title="16 bits<br>Unique ID, identifies datagram parts.<br>" class="ethernet-frame-cell">
+                        <p class="frame-text">Identification</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="3 bits<br>First: must be zero<br>Second: no fragments<br>Third: more fragments follow" class="ethernet-frame-cell">
+                        <p class="frame-text">Flags</p>
+                    </r-cell>
+                    <r-cell span="6-8" data-tooltip title="13 bits<br>Byte offset of a fragment, relative to first" class="ethernet-frame-cell">
+                        <p class="frame-text">Fragment Offset</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-2" data-tooltip title="8 bits<br>Amount of hops the package lives" class="ethernet-frame-cell">
+                        <p class="frame-text">TTL</p>
+                    </r-cell>
+                    <r-cell span="3-4" data-tooltip title="8 bits<br>Transport Layer Protocol<br>0x01: ICMP<br>0x06: TCP<br>0x11: UDP<br>0x12: MUX<br>" class="ethernet-frame-cell">
+                        <p class="frame-text">Protocol</p>
+                    </r-cell>
+                    <r-cell span="5-8" data-tooltip title="16 bits" class="ethernet-frame-cell">
+                        <p class="frame-text">Header Checksum</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="row" data-tooltip title="32 bits<br>Source IPv4 Address" class="ethernet-frame-cell">
+                        <p class="frame-text">Source address</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-8" data-tooltip title="32 bits<br>Destination IPv4 Address" class="ethernet-frame-cell">
+                        <p class="frame-text">Destination address</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-8" data-tooltip title="32 bits<br>Various options, rarely used" class="ethernet-frame-cell">
+                        <p class="frame-text">Options</p>
+                    </r-cell>
+                </r-grid>
+            </r-cell><!-- IPV4 Header -->
+            <r-cell class="panel">
+                <h2>IPv6 Header</h2>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-2" data-tooltip title="4 bits<br>IP Version -> 0110 = 6" class="ethernet-frame-cell">
+                        <p class="frame-text">Version</p>
+                    </r-cell>
+                    <r-cell span="3-4" data-tooltip title="8 bits<br>See DSCP and ECN on IPV4" class="ethernet-frame-cell">
+                        <p class="frame-text">Traffic Class</p>
+                    </r-cell>
+                    <r-cell span="5-8" data-tooltip title="20 bits<br>Sequential Flow" class="ethernet-frame-cell">
+                        <p class="frame-text">Flow Label</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="1-4" data-tooltip title="16 bits<br>Payload length may exceed 65535, in which case it is 0" class="ethernet-frame-cell">
+                        <p class="frame-text">Payload Length</p>
+                    </r-cell>
+                    <r-cell span="5-6" data-tooltip title="8 bits<br>indicates protocol, same identifiers as V4" class="ethernet-frame-cell">
+                        <p class="frame-text">Next header</p>
+                    </r-cell>
+                    <r-cell span="7-8" data-tooltip title="8 bits<br>indicates protocol, same identifiers as V4" class="ethernet-frame-cell">
+                        <p class="frame-text">TTL</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="row" data-tooltip title="128 bits<br>Source Address" class="ethernet-frame-cell">
+                        <p class="frame-text">Source Address</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="8" class="ethernet-frame-grid">
+                    <r-cell span="row" data-tooltip title="128 bits<br>Destination Address" class="ethernet-frame-cell">
+                        <p class="frame-text">Destination address</p>
+                    </r-cell>
+                </r-grid>
+            </r-cell><!-- IPV6 Header -->
+            <r-cell class="panel">
+                <h2>TCP Header</h2>
+                <r-grid columns="16" class="ethernet-frame-grid">
+                    <r-cell span="1-8" data-tooltip title="16 bits<br>Port segment was sent from" class="ethernet-frame-cell">
+                        <p class="frame-text">Source port</p>
+                    </r-cell>
+                    <r-cell span="9-16" data-tooltip title="16 bits<br>Port segmnent is sent to" class="ethernet-frame-cell">
+                        <p class="frame-text">Destination port</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="1" class="ethernet-frame-grid">
+                    <r-cell span="row" data-tooltip title="32 bits<br>If SYN flag is set, this is the initial packet.<br>If SYN is not set, data is at number+1" class="ethernet-frame-cell">
+                        <p class="frame-text">Sequence number</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="1" class="ethernet-frame-grid">
+                    <r-cell span="row" data-tooltip title="32 bits<br>If the ACK flag is set then the value of this field is the next sequence number that the sender of the ACK is expecting." class="ethernet-frame-cell">
+                        <p class="frame-text">Acknowledgment number</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="16" class="ethernet-frame-grid">
+                    <r-cell span="1-2" data-tooltip title="4 bits<br>Number of 32 bit words that define the size of the header." class="ethernet-frame-cell">
+                        <p class="frame-text">Data offset</p>
+                    </r-cell>
+                    <r-cell span="3-4" data-tooltip title="3 bits<br>Reserved for future use." class="ethernet-frame-cell">
+                        <p class="frame-text">Reserved</p>
+                    </r-cell>
+                    <r-cell span="5-9" data-tooltip title="9 bits<br>SYN: synchronize, start of connection<br>ACK: acknowledge, confirm connection<br>RST: reset connection<br>FIN: last package from sender<br>URG: urgent bit is significant<br>CWR: congestion window reduced" class="ethernet-frame-cell">
+                        <p class="frame-text">Flags</p>
+                    </r-cell>
+                    <r-cell span="10-16" data-tooltip title="16 bits<br>Number of bytes the sender of this segment is willing to receive" class="ethernet-frame-cell">
+                        <p class="frame-text">Window size</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="2" class="ethernet-frame-grid">
+                    <r-cell span="1" data-tooltip title="16 bits<br>Used for error checking. TCP can resend invalid segments." class="ethernet-frame-cell">
+                        <p class="frame-text">Checksum</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="16 bits<br>If the URG flag is set, then this 16-bit field is an offset from the sequence number indicating the last urgent data byte." class="ethernet-frame-cell">
+                        <p class="frame-text">Urgent pointer</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="1" class="ethernet-frame-grid">
+                    <r-cell span="row" data-tooltip title="0-320 bits<br>Optional options. Must be divisable by 32, otherwise 0 padding at the end." class="ethernet-frame-cell">
+                        <p class="frame-text">Options</p>
+                    </r-cell>
+                </r-grid>
+            </r-cell><!-- TCP Header -->
+            <r-cell class="panel">
+                <h2>UDP Header</h2>
+                <r-grid columns="2" class="ethernet-frame-grid">
+                    <r-cell span="1" data-tooltip title="16 bits<br>Port the datagram is sent from (optional in IPv6)." class="ethernet-frame-cell">
+                        <p class="frame-text">Source Port</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="16 bits<br>Port the datagram is sent to." class="ethernet-frame-cell">
+                        <p class="frame-text">Destination port</p>
+                    </r-cell>
+                </r-grid>
+                <r-grid columns="2" class="ethernet-frame-grid">
+                    <r-cell span="1" data-tooltip title="16 bits<br>Min Length: 8 bytes<br>Max length: 65535 bytes." class="ethernet-frame-cell">
+                        <p class="frame-text">Length</p>
+                    </r-cell>
+                    <r-cell span="1" data-tooltip title="16 bits<br>Used for error recognition. Optional in V4, mandatatory in V6. All zeroes if unused." class="ethernet-frame-cell">
+                        <p class="frame-text">Checksum</p>
+                    </r-cell>
+                </r-grid>
+            </r-cell><!-- UDP Header -->
+            <r-cell>
+                <r-grid columns="10" class="panel">
+                    <r-cell span="row"><h2>tcpdump</h2></r-cell>
+                    <r-cell span="row"><h3>flags</h3></r-cell>
+                    <r-cell span="1" data-tooltip title="tcpdump -i eth0">-i name</r-cell><r-cell span="2-5">Capture named interfaces, any for all</r-cell>
+                    <r-cell span="6-6" data-tooltip title="tcpdump -c10">-c integer</r-cell><r-cell span="7-10">Capture amount of packages</r-cell>
+                    <r-cell span="1" data-tooltip title="tcpdump -D">-D</r-cell><r-cell span="2-5">Show available interfaces</r-cell>
+                    <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i any">-n</r-cell><r-cell span="7-10">Do not resolve host-names</r-cell>
+                    <r-cell span="1" data-tooltip title="tcpdump -nn -c10 -i eth0">-nn</r-cell><r-cell span="2-5">Do not resolve host-names or services (ports)</r-cell>
+                    <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i eth0 tcp">tcp</r-cell><r-cell span="7-10">Capture tcp</r-cell>
+                    <r-cell span="1" data-tooltip title="tcpdump -n -c10 -i eth0 tcp">udp</r-cell><r-cell span="2-5">Capture udp, also works with others such as arp</r-cell>
+                    <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i eth0 host 10.10.10.10 and [not] udp">host IP</r-cell><r-cell span="7-10">Capture data to or from this host only</r-cell>
+                    <r-cell span="1" data-tooltip title="tcpdump -n -c10 -i eth0 src 10.10.10.10 and tcp">src IP</r-cell><r-cell span="2-5">Capture data from this host only</r-cell>
+                    <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i eth0 dst 10.10.10.10">dst IP</r-cell><r-cell span="7-10">Capture data sent to this host only</r-cell>
+                    <r-cell span="1" data-tooltip title="tcpdump -n -c10 -i eth0 net 10.10.10.0/24">net CIDR</r-cell><r-cell span="2-5">Capture data to or from this subnet</r-cell>
+                    <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i eth0 host 10.10.10.10 and port 53">port number</r-cell><r-cell span="7-10">Use service name instead of port</r-cell>
+                    <r-cell span="row"><h3>tcp flags</h3></r-cell>
+                    <r-cell span="1-2">[S]&nbsp;SYNC</r-cell>
+                    <r-cell span="3-4">[.|A]&nbsp;ACKNOWLEDGE</r-cell>
+                    <r-cell span="5-6">[R]&nbsp;RESET</r-cell>
+                    <r-cell span="7-8">[F]&nbsp;FINISHED</r-cell>
+                    <r-cell span="9-10">[P]&nbsp;PUSH</r-cell>
+                    <r-cell span="row">Flags can be displayed combined, [S.] means sync and acknowledge</r-cell>
+                </r-grid><!-- tcpdump -->
+                <r-grid columns="10"  class="panel">
+                    <r-cell span="row"><h2>nmap</h2></r-cell>
+                    <r-cell span="1" data-tooltip title="nmap 10.10.10.1">IP</r-cell><r-cell span="2-5">Scan host</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap 10.10.10.1 10.10.10.2">LIST</r-cell><r-cell span="7-10">Scan list</r-cell>
+                    <r-cell span="1" data-tooltip title="nmap 10.10.10.0/24">CIDR</r-cell><r-cell span="2-5">Scan subnet</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap -iL targets.txt">-iL file</r-cell><r-cell span="7-10">Scan targets from file</r-cell>
+                    <r-cell span="1" data-tooltip title="nmap 10.10.10.0/24 -iR 100">-iR number</r-cell><r-cell span="2-5">Random hosts of amount</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap 10.10.10.0/24 --exclude 10.10.10.1 10.10.10.253">--exclude</r-cell><r-cell span="7-10">Exclude hosts</r-cell>
+                    <r-cell span="1" data-tooltip title="nmap -iL targets.txt">-iL file</r-cell><r-cell span="2-5">Scan targets from file</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap -sU 10.10.10.1">-sU</r-cell><r-cell span="7-10">UDP port scan</r-cell>
+                    <r-cell span="1" data-tooltip title="nmap -sU -n 10.10.10.1">-n</r-cell><r-cell span="2-5">No DNS resolution</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap -p- 10.10.10.1">-p-</r-cell><r-cell span="7-10">Scan ALL ports from 0 to 65353</r-cell>
+                    <r-cell span="1" data-tooltip title="nmap -p 1-1023 -sU 10.10.10.1">-p n[-n]</r-cell><r-cell span="2-5">Scan port or range</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap -p U:53,T:80 10.10.10.1">-p U:n,T:n</r-cell><r-cell span="7-10">Scan mixed ports, UDP and TCP</r-cell>
+                    <r-cell span="1" data-tooltip title="nmap -F 10.10.10.1">-F</r-cell><r-cell span="2-5">Fast scan 100 ports</r-cell>
+                    <r-cell span="6-6" data-tooltip title="nmap -sV -p 443 10.10.10.1">-sV</r-cell><r-cell span="7-10">Try to detect service</r-cell>
+                </r-grid><!-- nmap -->
+            </r-cell>
+            <r-cell class="footer">
+                <p>Provided by <a href="https://tuxstash.de">tuxstash.de</a></p>
+            </r-cell>
+        </r-grid>
+    </div> <!-- Wrapper -->
+    </body>
+</html>
