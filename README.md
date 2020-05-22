@@ -8,6 +8,8 @@ A networking cheatsheet for your work computer or at home. Run with a simple web
 Can also be viewed [here](https://cs.tuxstash.de) online. 
 If you have suggestions or additions, please open an issue :).
 
+I've mostly made this for myself, but maybe someone finds it useful.
+
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
 <a href='https://ko-fi.com/L3L31HXRQ' target='_blank'><img height='36' style='border:0;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
