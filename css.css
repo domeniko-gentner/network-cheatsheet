@@ -31,6 +31,11 @@ a:hover{
     color: #f9bf0f;
 }
 
+img{
+    float: left;
+    padding-right:1vw;
+}
+
 .panel{
     background-color: #393f4d;
     padding: 25px;
