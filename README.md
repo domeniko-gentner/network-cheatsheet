@@ -1,6 +1,12 @@
 # network-cheatsheet
 
-A networking cheatsheet for self-hosting. See a preview [here](https://cs.tuxstash.de).
+A networking cheatsheet for your work computer or at home. Run with a simple web server like this: 
+
+* Python: `python -m http.server`
+* Ruby: `ruby -run -e httpd .`
+
+Can also be viewed [here](https://cs.tuxstash.de) online. 
+If you have suggestions or additions, please open an issue :).
 
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
