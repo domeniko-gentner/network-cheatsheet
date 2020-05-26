@@ -8,7 +8,7 @@
         <title>networking cheat sheet</title>
     </head>
     <body>
-    <r-grid columns="1" columns-s="1" columns-l="1">
+    <r-grid columns="1"  columns-l="1">
         <r-cell span="row">
             <a href="https://github.com/domeniko-gentner/network-cheatsheet"><img src="/github.png" alt="github logo"></a>
             <h1>networking cheat sheet</h1>
@@ -17,7 +17,7 @@
     <r-grid columns="1" class="wrapper">
         <r-cell class="panel">
             <h2>Ethernet Frame</h2>
-            <r-grid columns="9" columns-s=1 class="ethernet-frame-grid">
+            <r-grid columns="9"  class="ethernet-frame-grid">
                 <r-cell span="1" data-tooltip title="7 bytes<br>for synchronization" class="ethernet-frame-cell">
                     <p class="frame-text">Preamble</p>
                 </r-cell>
@@ -207,7 +207,7 @@
             </r-grid>
         </r-cell><!-- UDP Header -->
         <r-cell>
-            <r-grid columns="10" columns-s="1" class="panel">
+            <r-grid columns="10"  class="panel">
                 <r-cell span="row"><h2>tcpdump</h2></r-cell>
                 <r-cell span="row"><h3>flags</h3></r-cell>
                 <r-cell span="1" data-tooltip title="tcpdump -i eth0">-i name</r-cell><r-cell span="2-5">Capture named interfaces, any for all</r-cell>
@@ -230,7 +230,9 @@
                 <r-cell span="9-10">[P]&nbsp;PUSH</r-cell>
                 <r-cell span="row">Flags can be displayed combined, [S.] means sync and acknowledge</r-cell>
             </r-grid><!-- tcpdump -->
-            <r-grid columns="10" columns-s="1"  class="panel">
+        </r-cell>
+        <r-cell>
+            <r-grid columns="10"   class="panel">
                 <r-cell span="row"><h2>nmap</h2></r-cell>
                 <r-cell span="1" data-tooltip title="nmap 10.10.10.1">IP</r-cell><r-cell span="2-5">Scan host</r-cell>
                 <r-cell span="6-6" data-tooltip title="nmap 10.10.10.1 10.10.10.2">LIST</r-cell><r-cell span="7-10">Scan list</r-cell>
@@ -247,18 +249,20 @@
                 <r-cell span="1" data-tooltip title="nmap -F 10.10.10.1">-F</r-cell><r-cell span="2-5">Fast scan 100 ports</r-cell>
                 <r-cell span="6-6" data-tooltip title="nmap -sV -p 443 10.10.10.1">-sV</r-cell><r-cell span="7-10">Try to detect service</r-cell>
             </r-grid><!-- nmap -->
-            <r-grid columns="10" columns-s="1"  class="panel">
+        </r-cell>
+        <r-cell>
+            <r-grid columns="10"   class="panel">
                 <r-cell span="row"><h2>mtr</h2></r-cell>
                 <r-cell span="1" data-tooltip title="mtr 10.10.10.1">IP</r-cell><r-cell span="2-5">Run route to host</r-cell>
                 <r-cell span="6-6" data-tooltip title="mtr -z 10.10.10.1">-z</r-cell><r-cell span="7-10">Resolve ASN</r-cell>
                 <r-cell span="1" data-tooltip title="mtr -c1 10.10.10.1">-c num</r-cell><r-cell span="2-5">Run num cycles</r-cell>
                 <r-cell span="6-6" data-tooltip title="mtr -r -z -c1 10.10.10.1">-r</r-cell><r-cell span="7-10">Report mode, useful with -c</r-cell>
-                <r-cell span="1" data-tooltip title="mtr -c1 10.10.10.1">-c num</r-cell><r-cell span="2-5">Run num cycles</r-cell>
+                <r-cell span="1" data-tooltip title="mtr -w 10.10.10.1">-w</r-cell><r-cell span="2-5">Do not truncate network names aka wide mode</r-cell>
                 <r-cell span="6-6" data-tooltip title="mtr -r -z -n -c1 10.10.10.1">-n</r-cell><r-cell span="7-10">No RDNS</r-cell>
                 <r-cell span="1" data-tooltip title="mtr -U 10.10.10.1">-u</r-cell><r-cell span="2-5">use UDP instead of ICMP</r-cell>
                 <r-cell span="6-6" data-tooltip title="mtr -T 10.10.10.1">-T</r-cell><r-cell span="7-10">use TCP instead of ICMP</r-cell>
                 <r-cell span="1" data-tooltip title="mtr -f2 10.10.10.1">-f num</r-cell><r-cell span="2-5">set first TTL, useful for skipping own router</r-cell>
-                <r-cell span="6-6" data-tooltip title="mtr -T 10.10.10.1">-i float</r-cell><r-cell span="7-10">set interval, default is 1 second</r-cell>
+                <r-cell span="6-6" data-tooltip title="mtr -i 0.2 10.10.10.1">-i float</r-cell><r-cell span="7-10">set interval, default is 1 second</r-cell>
             </r-grid><!-- mtr -->
         </r-cell>
         <r-cell class="footer">
