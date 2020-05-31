@@ -222,6 +222,7 @@
                 <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i eth0 dst 10.10.10.10">dst IP</r-cell><r-cell span="7-10">Capture data sent to this host only</r-cell>
                 <r-cell span="1" data-tooltip title="tcpdump -n -c10 -i eth0 net 10.10.10.0/24">net CIDR</r-cell><r-cell span="2-5">Capture data to or from this subnet</r-cell>
                 <r-cell span="6-6" data-tooltip title="tcpdump -n -c10 -i eth0 host 10.10.10.10 and port 53">port number</r-cell><r-cell span="7-10">Use service name instead of port</r-cell>
+                <r-cell span="1" data-tooltip title="tcpdump -n -i eth0 port not ssh">port not num|name</r-cell><r-cell span="2-5">Exclude port or service in report</r-cell>
                 <r-cell span="row"><h3>tcp flags</h3></r-cell>
                 <r-cell span="1-2">[S]&nbsp;SYNC</r-cell>
                 <r-cell span="3-4">[.|A]&nbsp;ACKNOWLEDGE</r-cell>
@@ -264,6 +265,41 @@
                 <r-cell span="1" data-tooltip title="mtr -f2 10.10.10.1">-f num</r-cell><r-cell span="2-5">set first TTL, useful for skipping own router</r-cell>
                 <r-cell span="6-6" data-tooltip title="mtr -i 0.2 10.10.10.1">-i float</r-cell><r-cell span="7-10">set interval, default is 1 second</r-cell>
             </r-grid><!-- mtr -->
+        </r-cell>
+        <r-cell>
+            <r-grid columns="10" class="panel">
+                <r-cell span="row"><h2>iptables</h2></r-cell>
+                <r-cell span="1" data-tooltip title="iptables -vL">-vL</r-cell><r-cell span="2-5">Shows rules hit counters</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -A OUTPUT">-A chain</r-cell><r-cell span="7-10">Append rule to chain</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I INPUT 2">-I chain num</r-cell><r-cell span="2-5">Insert rule to chain at position</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I OUTPUT -s 10.10.10.0/24">-s chain num</r-cell><r-cell span="7-10">Packages from source</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I INPUT -d 10.10.10.0/24">-d chain num</r-cell><r-cell span="2-5">Packages to destination</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I INPUT -d 10.10.10.0/24 -j DROP">-j target</r-cell><r-cell span="7-10">Apply target to rule</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I INPUT -m mac --mac-source 00:00:00:FF:FF:FF">-m extension</r-cell><r-cell span="2-5">Use an extension to match packet</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -L [-t tablename]">-L</r-cell><r-cell span="7-10">List all rules, use -t for specific tables</r-cell>
+                <r-cell span="row"><h3>chains</h3></r-cell>
+                <r-cell span="row">A chain defines a set of rules. They do not need either a source nor a destination. They can be applied to those later.</r-cell>
+                <r-cell data-tooltip title="Sent in this context means,<br>directly sent via the interface<br>this rule applies to" span="1-2">OUTPUT - When a package is sent</r-cell>
+                <r-cell span="3-4">INPUT - When a package is received</r-cell>
+                <r-cell data-tooltip title="Example: Using another virtual interface<br>for e.g. a virtual machine." span="5-6">FORWARD - When a package is forwarded</r-cell>
+                <r-cell span="7-10">USER DEFINED - You can define a user defined chain and apply it to any source/destination.</r-cell>
+            </r-grid>
+        </r-cell>
+        <r-cell>
+            <r-grid columns="10" class="panel">
+                <r-cell span="row"><h2>Fibre cables color coding</h2></r-cell>
+                <r-cell span="1" style="background-color: orange;">&nbsp;</r-cell><r-cell span="2-10">OM1/2 multi-mode</r-cell>
+                <r-cell span="1" style="background-color: aqua;">&nbsp;</r-cell><r-cell span="2-10">OM3 multi-mode</r-cell>
+                <r-cell span="1" style="background-color: #c4618c;">&nbsp;</r-cell><r-cell span="2-10">OM4 multi-mode</r-cell>
+                <r-cell span="1" style="background-color: lime">&nbsp;</r-cell><r-cell span="2-10">OM5 multi-mode</r-cell>
+                <r-cell span="1" style="background-color: yellow">&nbsp;</r-cell><r-cell span="2-10">OS1/2 single-mode PC with a blue plug</r-cell>
+                <r-cell span="1" style="background-color: yellow">&nbsp;</r-cell><r-cell span="2-10">OS1/2 single-mode APC with a green plug</r-cell>
+            </r-grid>
+        </r-cell>
+        <r-cell>
+            <r-grid columns="10" class="panel">
+                <r-cell span="row"><h2>SFP</h2></r-cell>
+            </r-grid>
         </r-cell>
         <r-cell class="footer">
             <p>Provided by <a href="https://tuxstash.de">tuxstash.de</a></p>
