@@ -272,8 +272,8 @@
                 <r-cell span="1" data-tooltip title="iptables -vL">-vL</r-cell><r-cell span="2-5">Shows rules hit counters</r-cell>
                 <r-cell span="1" data-tooltip title="iptables -A OUTPUT">-A chain</r-cell><r-cell span="7-10">Append rule to chain</r-cell>
                 <r-cell span="1" data-tooltip title="iptables -I INPUT 2">-I chain num</r-cell><r-cell span="2-5">Insert rule to chain at position</r-cell>
-                <r-cell span="1" data-tooltip title="iptables -I OUTPUT -s 10.10.10.0/24">-s chain num</r-cell><r-cell span="7-10">Packages from source</r-cell>
-                <r-cell span="1" data-tooltip title="iptables -I INPUT -d 10.10.10.0/24">-d chain num</r-cell><r-cell span="2-5">Packages to destination</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I OUTPUT -s 10.10.10.0/24">-s CIDR</r-cell><r-cell span="7-10">Packages from source</r-cell>
+                <r-cell span="1" data-tooltip title="iptables -I INPUT -d 10.10.10.0/24">-d CIDR</r-cell><r-cell span="2-5">Packages to destination</r-cell>
                 <r-cell span="1" data-tooltip title="iptables -I INPUT -d 10.10.10.0/24 -j DROP">-j target</r-cell><r-cell span="7-10">Apply target to rule</r-cell>
                 <r-cell span="1" data-tooltip title="iptables -I INPUT -m mac --mac-source 00:00:00:FF:FF:FF">-m extension</r-cell><r-cell span="2-5">Use an extension to match packet</r-cell>
                 <r-cell span="1" data-tooltip title="iptables -L [-t tablename]">-L</r-cell><r-cell span="7-10">List all rules, use -t for specific tables</r-cell>
@@ -296,11 +296,11 @@
                 <r-cell span="1" style="background-color: yellow">&nbsp;</r-cell><r-cell span="2-10">OS1/2 single-mode APC with a green plug</r-cell>
             </r-grid>
         </r-cell>
-        <r-cell>
-            <r-grid columns="10" class="panel">
-                <r-cell span="row"><h2>SFP</h2></r-cell>
-            </r-grid>
-        </r-cell>
+<!--        <r-cell>-->
+<!--            <r-grid columns="10" class="panel">-->
+<!--                <r-cell span="row"><h2>SFP</h2></r-cell>-->
+<!--            </r-grid>-->
+<!--        </r-cell>-->
         <r-cell class="footer">
             <p>Provided by <a href="https://tuxstash.de">tuxstash.de</a></p>
         </r-cell>
