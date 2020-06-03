@@ -23,7 +23,7 @@ h1, h2{
     padding-bottom: 1vh;
 }
 
-a{
+a,  a:visited{
     color: #feda6a;
 }
 
@@ -34,6 +34,11 @@ a:hover{
 img{
     float: left;
     padding-right:1vw;
+}
+
+li{
+    font-size: 1.5em;
+    list-style: none;
 }
 
 .panel{

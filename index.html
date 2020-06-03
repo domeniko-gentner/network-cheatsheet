@@ -14,8 +14,26 @@
             <h1>networking cheat sheet</h1>
         </r-cell>
     </r-grid>
+    <r-grid class="panel">
+        <r-cell>
+            <h2>TOC</h2>
+            <ul>
+                <li><a href="#ethernet">Ethernet Frame</a></li>
+                <li><a href="#v4">IpV4 Header</a></li>
+                <li><a href="#v6">IpV6 Header</a></li>
+                <li><a href="#tcp">TCP Header</a></li>
+                <li><a href="#udp">UDP Header</a></li>
+                <li><a href="#tcpdump">tcpdump</a></li>
+                <li><a href="#nmap">nmap</a></li>
+                <li><a href="#mtr">mtr</a></li>
+                <li><a href="#iptables">iptables</a></li>
+                <li><a href="#cables">Fibre Colors</a></li>
+                <li><a href="#sfp">SFP(+) speeds</a></li>
+            </ul>
+        </r-cell>
+    </r-grid>
     <r-grid columns="1" class="wrapper">
-        <r-cell class="panel">
+        <r-cell class="panel" id="ethernet">
             <h2>Ethernet Frame</h2>
             <r-grid columns="9"  class="ethernet-frame-grid">
                 <r-cell span="1" data-tooltip title="7 bytes<br>for synchronization" class="ethernet-frame-cell">
@@ -47,7 +65,7 @@
                 </r-cell>
             </r-grid>
         </r-cell>
-        <r-cell class="panel">
+        <r-cell class="panel" id="v4">
             <h2>IPV4 Header</h2>
             <r-grid columns="8" class="ethernet-frame-grid">
                 <r-cell span="1-2" data-tooltip title="4 bits<br>Protocol version, equals 4" class="ethernet-frame-cell">
@@ -104,7 +122,7 @@
                 </r-cell>
             </r-grid>
         </r-cell><!-- IPV4 Header -->
-        <r-cell class="panel">
+        <r-cell class="panel" id="v6">
             <h2>IPv6 Header</h2>
             <r-grid columns="8" class="ethernet-frame-grid">
                 <r-cell span="1-2" data-tooltip title="4 bits<br>IP Version -> 0110 = 6" class="ethernet-frame-cell">
@@ -139,7 +157,7 @@
                 </r-cell>
             </r-grid>
         </r-cell><!-- IPV6 Header -->
-        <r-cell class="panel">
+        <r-cell class="panel" id="tcp">
             <h2>TCP Header</h2>
             <r-grid columns="16" class="ethernet-frame-grid">
                 <r-cell span="1-8" data-tooltip title="16 bits<br>Port segment was sent from" class="ethernet-frame-cell">
@@ -187,7 +205,7 @@
                 </r-cell>
             </r-grid>
         </r-cell><!-- TCP Header -->
-        <r-cell class="panel">
+        <r-cell class="panel" id="udp">
             <h2>UDP Header</h2>
             <r-grid columns="2" class="ethernet-frame-grid">
                 <r-cell span="1" data-tooltip title="16 bits<br>Port the datagram is sent from (optional in IPv6)." class="ethernet-frame-cell">
@@ -207,7 +225,7 @@
             </r-grid>
         </r-cell><!-- UDP Header -->
         <r-cell>
-            <r-grid columns="10"  class="panel">
+            <r-grid columns="10"  class="panel" id="tcpdump">
                 <r-cell span="row"><h2>tcpdump</h2></r-cell>
                 <r-cell span="row"><h3>flags</h3></r-cell>
                 <r-cell span="1" data-tooltip title="tcpdump -i eth0">-i name</r-cell><r-cell span="2-5">Capture named interfaces, any for all</r-cell>
@@ -233,7 +251,7 @@
             </r-grid><!-- tcpdump -->
         </r-cell>
         <r-cell>
-            <r-grid columns="10"   class="panel">
+            <r-grid columns="10"   class="panel" id="nmap">
                 <r-cell span="row"><h2>nmap</h2></r-cell>
                 <r-cell span="1" data-tooltip title="nmap 10.10.10.1">IP</r-cell><r-cell span="2-5">Scan host</r-cell>
                 <r-cell span="6-6" data-tooltip title="nmap 10.10.10.1 10.10.10.2">LIST</r-cell><r-cell span="7-10">Scan list</r-cell>
@@ -252,7 +270,7 @@
             </r-grid><!-- nmap -->
         </r-cell>
         <r-cell>
-            <r-grid columns="10"   class="panel">
+            <r-grid columns="10"   class="panel" id="mtr">
                 <r-cell span="row"><h2>mtr</h2></r-cell>
                 <r-cell span="1" data-tooltip title="mtr 10.10.10.1">IP</r-cell><r-cell span="2-5">Run route to host</r-cell>
                 <r-cell span="6-6" data-tooltip title="mtr -z 10.10.10.1">-z</r-cell><r-cell span="7-10">Resolve ASN</r-cell>
@@ -267,7 +285,7 @@
             </r-grid><!-- mtr -->
         </r-cell>
         <r-cell>
-            <r-grid columns="10" class="panel">
+            <r-grid columns="10" class="panel" id="iptables">
                 <r-cell span="row"><h2>iptables</h2></r-cell>
                 <r-cell span="1" data-tooltip title="iptables -vL">-vL</r-cell><r-cell span="2-5">Shows rules hit counters</r-cell>
                 <r-cell span="1" data-tooltip title="iptables -A OUTPUT">-A chain</r-cell><r-cell span="7-10">Append rule to chain</r-cell>
@@ -279,14 +297,14 @@
                 <r-cell span="1" data-tooltip title="iptables -L [-t tablename]">-L</r-cell><r-cell span="7-10">List all rules, use -t for specific tables</r-cell>
                 <r-cell span="row"><h3>chains</h3></r-cell>
                 <r-cell span="row">A chain defines a set of rules. They do not need either a source nor a destination. They can be applied to those later.</r-cell>
-                <r-cell data-tooltip title="Sent in this context means,<br>directly sent via the interface<br>this rule applies to" span="1-2">OUTPUT - When a package is sent</r-cell>
+                <r-cell data-tooltip title="Sent in this context means,<br>directly sent via the interface<br>this rule applies to" span="1-2">OUTPUT - When a package is sent directly</r-cell>
                 <r-cell span="3-4">INPUT - When a package is received</r-cell>
                 <r-cell data-tooltip title="Example: Using another virtual interface<br>for e.g. a virtual machine." span="5-6">FORWARD - When a package is forwarded</r-cell>
                 <r-cell span="7-10">USER DEFINED - You can define a user defined chain and apply it to any source/destination.</r-cell>
             </r-grid>
         </r-cell>
         <r-cell>
-            <r-grid columns="10" class="panel">
+            <r-grid columns="10" class="panel" id="cables">
                 <r-cell span="row"><h2>Fibre cables color coding</h2></r-cell>
                 <r-cell span="1" style="background-color: orange;">&nbsp;</r-cell><r-cell span="2-10">OM1/2 multi-mode</r-cell>
                 <r-cell span="1" style="background-color: aqua;">&nbsp;</r-cell><r-cell span="2-10">OM3 multi-mode</r-cell>
@@ -296,11 +314,21 @@
                 <r-cell span="1" style="background-color: yellow">&nbsp;</r-cell><r-cell span="2-10">OS1/2 single-mode APC with a green plug</r-cell>
             </r-grid>
         </r-cell>
-<!--        <r-cell>-->
-<!--            <r-grid columns="10" class="panel">-->
-<!--                <r-cell span="row"><h2>SFP</h2></r-cell>-->
-<!--            </r-grid>-->
-<!--        </r-cell>-->
+        <r-cell>
+            <r-grid columns="10" class="panel" id="sfp">
+                <!-- Module speeds -->
+                <r-cell span="1-5"><h2>SFP</h2></r-cell>
+                <r-cell span="6-10"><h2>SFP+</h2></r-cell>
+                <r-cell span="1-5">SFP 1 GbE</r-cell>
+                <r-cell span="6-10">SFP+ 10 GbE</r-cell>
+                <r-cell span="1-5">SFP28 25 GbE</r-cell>
+                <r-cell span="6-10">QSFP+ 40 GbE</r-cell>
+                <r-cell span="1-5">SFP56 50 GbE</r-cell>
+                <r-cell span="6-10">QSFP28 100 GbE</r-cell>
+                <r-cell span="6-10">QSFP56 200 GbE</r-cell>
+                <r-cell span="6-10">QSFP-DD 400 GbE</r-cell>
+            </r-grid>
+        </r-cell>
         <r-cell class="footer">
             <p>Provided by <a href="https://tuxstash.de">tuxstash.de</a></p>
         </r-cell>
