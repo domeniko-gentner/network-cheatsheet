@@ -2,15 +2,29 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/raster2.css">
-        <link rel="stylesheet" href="/css.css">
-        <script src="tooltip.js"></script>
+        <meta name="cheatsheet for network administrators">
+
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" as="style">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"></noscript>
+
+        <link rel="preload" href="/raster2.css" as="style">
+        <link rel="stylesheet" href="/raster2.css" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="/raster2.css"></noscript>
+
+        <link rel="preload" href="/css.css" as="style">
+        <link rel="stylesheet" href="/css.css" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="/css.css"></noscript>
+
+        <script defer src="tooltip.js"></script>
         <title>networking cheat sheet</title>
     </head>
     <body>
     <r-grid columns="1"  columns-l="1">
         <r-cell span="row">
-            <a href="https://github.com/domeniko-gentner/network-cheatsheet"><img src="/github.png" alt="github logo"></a>
+            <a href="https://github.com/domeniko-gentner/network-cheatsheet">
+                <img width="32" height="32" src="/github.png" alt="github logo">
+            </a>
             <h1>networking cheat sheet</h1>
         </r-cell>
     </r-grid>
@@ -333,16 +347,16 @@
         <r-cell>
             <r-grid columns="1" class="panel" id="bgp">
                 <h2>BGP Table path selection</h2>
-                <p>Prefer the highest local-preference value.</p>
-                <p>Prefer the shortest AS-path length.</p>
-                <p>Prefer the lowest origin value.</p>
-                <p>Prefer the lowest MED value.</p>
-                <p>Prefer routes learned from an EBGP peer over an IBGP peer.</p>
-                <p>Prefer best exit from AS.</p>
-                <p>For EBGP-received routes, prefer the current active route.</p>
-                <p>Prefer routes from the peer with the lowest Router ID.</p>
-                <p>Prefer paths with the shortest cluster length.</p>
-                <p>Prefer routes from the peer with the lowest peer IP address.</p>
+                <p>Prefer the highest local-preference value.<br>
+                Prefer the shortest AS-path length.<br>
+                Prefer the lowest origin value.<br>
+                Prefer the lowest MED value.<br>
+                Prefer routes learned from an EBGP peer over an IBGP peer.<br>
+                Prefer best exit from AS.<br>
+                For EBGP-received routes, prefer the current active route.<br>
+                Prefer routes from the peer with the lowest Router ID.<br>
+                Prefer paths with the shortest cluster length.<br>
+                Prefer routes from the peer with the lowest peer IP address.</p>
                 <p><a href="https://tools.ietf.org/html/rfc4271">source</a></p>
             </r-grid>
         </r-cell>

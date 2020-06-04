@@ -8,13 +8,11 @@
     Green: #2ECC40
 */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
-
 body{
     font-family: 'DM Mono', monospace;
     background-color: #1d1e22;
     color: white;
-    /*font-size: 1.1em;*/
+    font-size: 1.1em;
 }
 
 h1, h2{
