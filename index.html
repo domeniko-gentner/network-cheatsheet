@@ -29,6 +29,7 @@
                 <li><a href="#iptables">iptables</a></li>
                 <li><a href="#cables">Fibre Colors</a></li>
                 <li><a href="#sfp">SFP(+) speeds</a></li>
+                <li><a href="#bgp">BGP Table path selection</a></li>
             </ul>
         </r-cell>
     </r-grid>
@@ -327,6 +328,22 @@
                 <r-cell span="6-10">QSFP28 100 GbE</r-cell>
                 <r-cell span="6-10">QSFP56 200 GbE</r-cell>
                 <r-cell span="6-10">QSFP-DD 400 GbE</r-cell>
+            </r-grid>
+        </r-cell>
+        <r-cell>
+            <r-grid columns="1" class="panel" id="bgp">
+                <h2>BGP Table path selection</h2>
+                <p>Prefer the highest local-preference value.</p>
+                <p>Prefer the shortest AS-path length.</p>
+                <p>Prefer the lowest origin value.</p>
+                <p>Prefer the lowest MED value.</p>
+                <p>Prefer routes learned from an EBGP peer over an IBGP peer.</p>
+                <p>Prefer best exit from AS.</p>
+                <p>For EBGP-received routes, prefer the current active route.</p>
+                <p>Prefer routes from the peer with the lowest Router ID.</p>
+                <p>Prefer paths with the shortest cluster length.</p>
+                <p>Prefer routes from the peer with the lowest peer IP address.</p>
+                <p><a href="https://tools.ietf.org/html/rfc4271">source</a></p>
             </r-grid>
         </r-cell>
         <r-cell class="footer">
