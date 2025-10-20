@@ -5,9 +5,7 @@ A networking cheatsheet for your work computer or at home. Run with a simple web
 * Python: `python -m http.server`
 * Ruby: `ruby -run -e httpd .`
 
-Can also be viewed [here](https://cs.tuxstash.de) online. 
-If you have suggestions or additions, please open an issue :).
-
+If you have suggestions or additions, please open an issue :).        
 I've mostly made this for myself, but maybe someone finds it useful.
 
 <!--suppress HtmlDeprecatedAttribute -->
